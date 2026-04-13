@@ -1,0 +1,165 @@
+You are working on a professional frontend project using React, TypeScript, and Vite.
+
+Always follow these rules.
+
+## General standards
+- Write production-style code, not tutorial-style code.
+- Prioritize maintainability, clarity, strong typing, and clean architecture.
+- Prefer simple, explicit, scalable solutions.
+- Avoid overengineering.
+- The code should be portfolio-worthy and easy for another engineer to understand.
+
+## Tech stack
+- Use React with TypeScript.
+- Use functional components only.
+- Use React hooks appropriately.
+- Use Vite conventions.
+- Use native fetch or Axios consistently across the project.
+- Use environment variables for API configuration.
+
+## Architecture
+- Organize code into clear folders such as:
+  - components
+  - pages
+  - hooks
+  - services
+  - types
+  - utils
+  - styles
+- Keep API access logic in a service layer.
+- Keep presentational components focused on UI.
+- Keep state and orchestration logic out of small presentational components when possible.
+- Reuse types across the app.
+- Avoid putting everything in App.tsx.
+
+## Components
+- Build small, reusable, strongly typed components.
+- Prefer composition over duplication.
+- Use descriptive prop names.
+- Keep components focused on one responsibility.
+- Avoid very large components.
+- Extract repeated UI patterns into reusable components.
+
+## State management
+- Prefer local state and custom hooks.
+- Do not introduce Redux, Zustand, Context, or other state libraries unless truly necessary.
+- Keep state flows simple and understandable.
+- Derive UI state cleanly from source state.
+
+## API integration
+- Centralize HTTP requests in dedicated service files.
+- Use a single API base URL from environment variables.
+- Create clear service methods such as:
+  - getTasks
+  - getTaskById
+  - createTask
+  - updateTask
+  - deleteTask
+- Handle query params cleanly for filtering.
+- Do not scatter fetch/Axios calls across random components.
+
+## Typing rules
+- Use strong typing everywhere.
+- Avoid `any`.
+- Define explicit interfaces/types for:
+  - Task
+  - CreateTaskPayload
+  - UpdateTaskPayload
+  - TaskStatus
+  - API error shapes if needed
+- Reuse types instead of redefining them repeatedly.
+- Type component props, hook returns, service responses, and state clearly.
+
+## Forms and validation
+- Validate user input in the UI before submission.
+- At minimum:
+  - title is required
+  - title must not be blank
+  - status must only allow pending or completed
+- Show clear validation messages to the user.
+- Support both create and edit flows cleanly.
+
+## UX requirements
+- Always handle:
+  - loading states
+  - empty states
+  - error states
+  - success feedback where relevant
+- The UI must remain stable even if API requests fail.
+- Show user-friendly messages for failures.
+- Do not leave the user without feedback during async actions.
+
+## Styling
+- Keep styling simple, clean, and professional.
+- Prefer a consistent design system approach even if minimal.
+- Avoid messy inline styles unless very small and justified.
+- Use clear spacing, hierarchy, and readable layout.
+- Make the UI feel organized and modern, even if minimal.
+
+## Code quality
+- Use descriptive names for files, variables, functions, and components.
+- Keep functions short and readable.
+- Avoid dead code and commented-out code.
+- Avoid vague names like `data`, `item`, `stuff`, `thing` unless context makes them obvious.
+- Keep imports organized.
+- Do not duplicate logic unnecessarily.
+- Extract utilities when logic is reused.
+
+## Error handling
+- Handle network and API failures gracefully.
+- Do not crash the UI on failed requests.
+- Surface errors in a consistent way.
+- Use defensive programming when reading API responses.
+
+## Dates and formatting
+- Format creation_date in a user-friendly and consistent way.
+- Keep formatting logic in a utility function when appropriate.
+
+## File generation behavior
+- When generating the project:
+  - first propose the folder structure
+  - then generate each file with complete content
+- Ensure imports and paths are internally consistent.
+- Ensure the project is runnable with minimal changes.
+- Do not leave placeholder TODOs unless absolutely necessary.
+
+## Required frontend features
+The frontend should support:
+- list all tasks
+- create a task
+- edit a task
+- delete a task
+- filter tasks by status
+- display task status clearly
+- display creation date clearly
+
+## Recommended patterns
+- Create reusable components like:
+  - TaskForm
+  - TaskList
+  - TaskCard or TaskItem
+  - FilterBar
+- Create a dedicated hook like `useTasks` if it improves clarity.
+- Create a dedicated `taskService.ts`.
+- Create a dedicated `task.ts` types file.
+- Create a `.env.example`.
+- Create a professional README.md.
+
+## Documentation
+- Always generate a complete README.md.
+- Include:
+  - overview
+  - tech stack
+  - setup
+  - run instructions
+  - environment variables
+  - project structure
+  - API integration notes
+  - future improvements
+
+## Output expectations
+- The final codebase should feel like a real professional frontend project.
+- Favor clarity and correctness over cleverness.
+- Do not skip error handling.
+- Do not skip typing.
+- Do not skip documentation.
