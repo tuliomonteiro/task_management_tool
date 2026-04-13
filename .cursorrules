@@ -1,0 +1,102 @@
+You are working on a professional Python backend project using FastAPI.
+
+Always follow these rules:
+
+## General engineering standards
+- Prioritize maintainability, clarity, strong typing, and clean architecture.
+- Use Python 3.12+ features when appropriate.
+- Keep code production-style, not tutorial-style.
+- Avoid overengineering, but keep the structure scalable.
+- Prefer simple, explicit, readable solutions.
+
+## Architecture
+- Follow clean architecture / layered architecture.
+- Separate responsibilities into:
+  - routers/api
+  - schemas
+  - models/entities
+  - repositories
+  - services
+  - db
+  - core
+  - tests
+- Keep route handlers thin.
+- Do not place business rules directly in FastAPI endpoints.
+- Repositories handle persistence.
+- Services handle business logic.
+- Shared configuration, exceptions, and handlers belong in core.
+
+## FastAPI rules
+- Use FastAPI best practices.
+- Use APIRouter for route organization.
+- Use dependency injection cleanly.
+- Use response models.
+- Use proper HTTP status codes.
+- Keep endpoint naming RESTful and consistent.
+
+## SQLAlchemy rules
+- Use SQLAlchemy 2.x style.
+- Use declarative models cleanly.
+- Keep database session management centralized.
+- Avoid duplicating DB logic across files.
+- Use ORM patterns consistently.
+
+## Pydantic and validation
+- Use Pydantic models for request and response validation.
+- Use strong type annotations everywhere.
+- Validate user input properly.
+- Reject invalid enum/status values.
+- Ensure title is not empty.
+- Add reasonable field constraints.
+
+## Error handling
+- Implement centralized/global exception handling.
+- Return consistent JSON error responses.
+- Use custom exceptions for domain/service errors where appropriate.
+- Handle:
+  - validation errors
+  - not found errors
+  - database errors
+  - unexpected server errors
+
+## Testing
+- Use PyTest.
+- Add meaningful tests for:
+  - create
+  - list
+  - get by id
+  - update
+  - delete
+  - filter by status
+  - validation failures
+  - not found scenarios
+- Keep tests isolated and deterministic.
+- Prefer a separate test database/session setup.
+
+## Documentation
+- Always keep README.md professional and complete.
+- Document:
+  - overview
+  - architecture
+  - setup
+  - run instructions
+  - test instructions
+  - endpoints
+  - design choices
+- Add docstrings where they improve clarity.
+
+## Code style
+- Use descriptive names.
+- Keep functions small.
+- Avoid dead code and commented-out code.
+- Avoid large files when possible.
+- Prefer composition over messy duplication.
+- Do not use vague names like data, obj, thing, stuff unless unavoidable.
+
+## Output behavior
+- When creating files, first propose the folder structure.
+- Then generate complete file contents.
+- Ensure files are internally consistent.
+- Ensure imports match the proposed structure.
+- Ensure the project can run with minimal changes.
+- If making assumptions, choose sensible professional defaults.
