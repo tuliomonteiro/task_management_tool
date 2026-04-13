@@ -79,6 +79,24 @@ def test_validation_failure_empty_title(client: TestClient) -> None:
     assert payload["error"]["type"] == "validation_error"
 
 
+def test_validation_failure_whitespace_title(client: TestClient) -> None:
+    response = client.post("/tasks", json={"title": "   ", "description": "Invalid", "status": "pending"})
+
+    assert response.status_code == 422
+    payload = response.json()
+    assert payload["error"]["type"] == "validation_error"
+
+
+def test_update_validation_failure_whitespace_title(client: TestClient) -> None:
+    created = client.post("/tasks", json={"title": "Keep me", "description": "Valid", "status": "pending"})
+    task_id = created.json()["id"]
+
+    response = client.put(f"/tasks/{task_id}", json={"title": "   "})
+    assert response.status_code == 422
+    payload = response.json()
+    assert payload["error"]["type"] == "validation_error"
+
+
 def test_task_not_found(client: TestClient) -> None:
     response = client.get("/tasks/99999")
     assert response.status_code == 404

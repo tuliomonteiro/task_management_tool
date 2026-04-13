@@ -4,7 +4,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Any, Dict, Optional
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 
 class TaskStatusSchema(str, Enum):
@@ -21,6 +21,12 @@ class TaskBase(BaseModel):
     description: Optional[str] = Field(default=None, max_length=1000)
     status: TaskStatusSchema = TaskStatusSchema.PENDING
 
+    @field_validator("title", mode="before")
+    @classmethod
+    def normalize_title(cls, value: str) -> str:
+        """Trim title so whitespace-only values fail min_length validation."""
+        return value.strip()
+
 
 class TaskCreate(TaskBase):
     """Payload for creating a task."""
@@ -32,6 +38,14 @@ class TaskUpdate(BaseModel):
     title: Optional[str] = Field(default=None, min_length=1, max_length=120)
     description: Optional[str] = Field(default=None, max_length=1000)
     status: Optional[TaskStatusSchema] = None
+
+    @field_validator("title", mode="before")
+    @classmethod
+    def normalize_title(cls, value: Optional[str]) -> Optional[str]:
+        """Trim title so whitespace-only update values fail min_length."""
+        if value is None:
+            return None
+        return value.strip()
 
     @model_validator(mode="after")
     def validate_at_least_one_field(self) -> "TaskUpdate":
