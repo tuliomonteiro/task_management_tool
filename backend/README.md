@@ -31,7 +31,7 @@ This separation keeps route handlers lightweight and business logic testable.
 
 ## Project Structure
 ```text
-assuresoft_task_management_tool/
+task_management_tool/
 └── backend/
     ├── app/
     │   ├── api/
