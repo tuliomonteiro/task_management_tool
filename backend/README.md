@@ -32,41 +32,47 @@ This separation keeps route handlers lightweight and business logic testable.
 ## Project Structure
 ```text
 assuresoft_task_management_tool/
-├── app/
-│   ├── api/
-│   │   └── v1/
-│   │       └── tasks.py
-│   ├── core/
-│   │   ├── config.py
-│   │   ├── exceptions.py
-│   │   └── handlers.py
-│   ├── db/
-│   │   ├── base.py
-│   │   └── session.py
-│   ├── models/
-│   │   └── task.py
-│   ├── repositories/
-│   │   └── task_repository.py
-│   ├── schemas/
-│   │   └── task.py
-│   ├── services/
-│   │   └── task_service.py
-│   └── main.py
-├── tests/
-│   ├── conftest.py
-│   └── test_tasks.py
-├── requirements.txt
-└── README.md
+└── backend/
+    ├── app/
+    │   ├── api/
+    │   │   └── v1/
+    │   │       └── tasks.py
+    │   ├── core/
+    │   │   ├── config.py
+    │   │   ├── exceptions.py
+    │   │   └── handlers.py
+    │   ├── db/
+    │   │   ├── base.py
+    │   │   └── session.py
+    │   ├── models/
+    │   │   └── task.py
+    │   ├── repositories/
+    │   │   └── task_repository.py
+    │   ├── schemas/
+    │   │   └── task.py
+    │   ├── services/
+    │   │   └── task_service.py
+    │   └── main.py
+    ├── tests/
+    │   ├── conftest.py
+    │   └── test_tasks.py
+    ├── requirements.txt
+    └── README.md
 ```
 
 ## Setup
-1. Create and activate a virtual environment:
+1. Move into backend directory:
+   ```bash
+   cd backend
+   ```
+
+2. Create and activate a virtual environment:
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate
    ```
 
-2. Install dependencies:
+3. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
